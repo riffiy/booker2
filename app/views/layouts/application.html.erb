@@ -18,20 +18,29 @@
       <h1><a href= "/"> Bookers</a></h1>
       <% if user_signed_in? %>
       <li>
-        <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+        <i class="fa-solid fa-house-chimney"><%= link_to "Home", root_path %></i>
+      </li>
+      <li>
+        <i class="fa-solid fa-users"><%= link_to 'Users', users_path(current_user.id) %></i>
+      </li>
+      <li>
+        <i class="fa-solid fa-book-open"><%= link_to 'Books', books_path %></i>
+      </li>
+      <li>
+        <i class="fa-solid fa-right-from-bracket"><%= link_to "Log out", destroy_user_session_path, method: :delete %></i>
       </li>
     <% else %>
       <li>
-        <%= link_to "Home", root_path %>
+        <i class="fa-solid fa-house-chimney"><%= link_to "Home", root_path %></i>
       </li>
       <li>
-        <%= link_to "About", about_path %>
+        <i class="fa-solid fa-link"><%= link_to "About", about_path %></i>
       </li>
       <li>
-        <%= link_to "Sign up", new_user_registration_path %>
+        <i class="fa-solid fa-user-plus"><%= link_to "Sign up", new_user_registration_path %></i>
       </li>
       <li>
-        <%= link_to "Log in", new_user_session_path %>
+        <i class="fa-solid fa-right-to-bracket"><%= link_to "Log in", new_user_session_path %></i>
       </li>
       </nav>
     <% end %>
