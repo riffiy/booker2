@@ -1,27 +1,29 @@
 <div class="container">
   <div class="row">
-    <div class="col-lg-4">
-      <div><%= render 'template', users: @users %></div> 
+    <div class="col-md-4">
+      <%= render 'template', users: @users %>
+    </div>
+    
+    <div class="col-md-8">
+      <h1 class="border-bottom">Users</h1>
+      <table>
+        <tr class="border-bottom">
+          <th></th>
+          <th>image</th>
+          <th>name</th>
+          <th></th>
+        </tr>
+        <tr>
+          <tbody class="border-bottom">
+            <% @users.each do |user| %>
+              <th><%= image_tag @user.get_profile_image(100,100) %></th>
+              <th><%= user.name %></th>
+              <th><%= link_to "Show", user_path(@user) %></th>
+            <% end %>
+          </tbody>
+        </tr>
+      </table>
     </div>
   </div>
 </div>
 
-<div class="col-lg-8">
-<h1>Users</h1>
-<table>
-  <tr>
-    <th>image</th>
-    <th>name</th>
-    <th></th>
-  </tr>
-  <tr>
-    <tbody>
-    <% @users.each do |user| %>
-    <th><%= image_tag @user.get_profile_image(100,100) %></th>
-    <th><%= user.name %></th>
-    <th><%= link_to "Show", user_path(@user) %></th>
-    <% end %>
-    </tbody>
-  </tr>
-</table>
-</div>

@@ -10,12 +10,10 @@
 <% end %>
 
 <table>
-    <h1>User info</h1>
-    <th>
-      <tr><%= image_tag @user.get_profile_image(100,100) %></tr>
-    </th>
+    <h1 class="border-bottom">User info</h1>
+      <tr class="border-bottom"><%= image_tag @user.get_profile_image(100,100) %></tr>
   <tbody>
-    <tr>
+    <tr class="border-bottom">
       <th>Name</th>
       <th><%= @user.name %></th>
     </tr>
@@ -23,11 +21,14 @@
       <th>Introduction</th>
       <th><%= @user.introduction %></th>
     </tr>
-    <tr>
-      <th><%= link_to "Edit", edit_user_path(@user) %></th>
-    </tr>
   </tbody>
 </table>
+
+<div class="row">
+  <%= link_to edit_user_path(@user.id), class: "btn btn-outline-secondary btn-block" do %>
+  <i class="fa-solid fa-user-gear"></i>
+  <% end %>
+</div>
 
 <h1>New book</h1>
 <%= form_with model: Book.new do |f| %>
